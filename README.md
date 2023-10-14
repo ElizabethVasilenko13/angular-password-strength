@@ -1,4 +1,15 @@
-# AngularPasswordStrength
+# Angular Password Strength
+
+### Build with:
+<img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/Angular-FF0000?logo=angular&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/SCSS-2971A3?logo=scss&logoColor=ColorName&style=ShieldStyle" />
+
+### Also include:
+- Passwor reset
+- Min characters display message
+
+### Screenshot:
+![image](https://github.com/ElizabethVasilenko13/angular-password-strength/assets/94306589/be33afed-457a-4c12-805c-77059ba6dc9f)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
