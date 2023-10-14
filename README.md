@@ -1,5 +1,8 @@
 # Angular Password Strength
 
+### Deploy:
+https://angular-password-strength.netlify.app/
+
 ### Build with:
 <img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/Angular-FF0000?logo=angular&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white&style=ShieldStyle" /> <img src="https://img.shields.io/badge/SCSS-2971A3?logo=scss&logoColor=ColorName&style=ShieldStyle" />
 
