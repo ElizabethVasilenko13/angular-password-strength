@@ -8,45 +8,57 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class PasswordStrengthComponent {
-  isWeak: boolean = false;
-  isMedium: boolean = false;
-  isStrong: boolean = false;
-
-
+  isEasy = false;
+  isMedium = false;
+  isStrong = false;
+  isShort = false;
   passwordForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.passwordForm = this.fb.group({ password: ['', Validators.minLength(8) ]});
-    
+    this.passwordForm = this.fb.group({ password: [ '',
+      Validators.minLength(8)
+    ]});
     this.setupPasswordChangeSubscription();
   }
 
   private setupPasswordChangeSubscription() {
-    const passwordControl = this.passwordForm.get('password');
-    if (passwordControl) {
-      passwordControl.valueChanges.subscribe(value => {
-        this.checkPasswordStrength(value);
-      });
-    }
+    this.passwordForm.get('password')?.valueChanges.subscribe(value => {
+      this.checkPasswordStrength(value);
+    });
   }
 
-  checkPasswordStrength(password: string) {
+  public resetPassword() {
+    this.passwordForm.get('password')?.setValue('');
+  }
+
+  private resetFlags() {
+    this.isEasy = false;
+    this.isMedium = false;
+    this.isStrong = false;
+    this.isShort = false;
+  }
+
+  private checkPasswordStrength(password: string) {
     const hasLetters = /[a-zA-Z]/.test(password);
     const hasDigits = /\d/.test(password);
     const hasSymbols = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password);
 
-    this.isWeak = false;
-    this.isMedium = false;
-    this.isStrong = false;
+    this.resetFlags();
 
-     if (password.length < 8) {
-      this.isWeak = true;
+    if (password.length === 0) {
+      this.isShort = false;
+    } else if (password.length < 8 && password.length > 0) {
+      this.isShort = true;
     } else if (hasLetters && hasDigits && hasSymbols) {
       this.isStrong = true;
     } else if ((hasLetters && hasDigits) || (hasDigits && hasSymbols) || (hasLetters && hasSymbols)) {
       this.isMedium = true;
     } else {
-      this.isWeak = true;
+      this.isEasy = true;
     }
   }
 }
+
+
+
+
