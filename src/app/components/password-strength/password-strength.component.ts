@@ -58,7 +58,3 @@ export class PasswordStrengthComponent {
     }
   }
 }
-
-
-
-
